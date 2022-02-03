@@ -1,6 +1,7 @@
 import { takeLatest, fork, call, put, takeEvery } from 'redux-saga/effects'
 import { actionType } from "store/type";
 import * as actions from '../actions/userAction';
+import * as errorActions from '../actions/errorHandlerActions';
 import * as api from '../api/userApi';
 
 
@@ -9,7 +10,8 @@ function* userLogin(action){
         const userData = yield call(api.userLoginApi, action.payload);
         yield put(actions.userAuthintication(userData.data))
     }catch(error){
-
+        // console.log(error);
+        yield put(errorActions.globalError(error.response.data.message));
     }
 }
 
@@ -22,7 +24,7 @@ function* userIsAuth(){
         const userData = yield call(api.userIsAuth);
         yield put(actions.userAuthintication(userData.data));
     }catch(error){
-        console.log(error)
+        yield put(errorActions.globalError(error.response.data.message));
     }
     
 }

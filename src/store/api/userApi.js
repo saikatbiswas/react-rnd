@@ -10,7 +10,8 @@ export const userLoginApi = ({userid, password})=>{
 }
 export const userIsAuth = ()=>{
     if(getAuthHeader()){
-        const user = axios.get(`/api/auth/isAuth`, getAuthHeader());
+        // const user = axios.get(`/api/auth/isAuth`, getAuthHeader());
+        const user = axios.get(`/api/auth/isAuth`);
         return user;
     }else{
         return {

@@ -16,22 +16,20 @@ export default function AuthGuard(ComposeComponent, priverRoute, adminRoute = nu
 
     
         componentDidMount(){
-            console.log(this);
             // const authData = this.props.dispatch(userIsAuth());
             this.props.dispatch(userIsAuth())
         }
 
     
         componentDidUpdate(prevProps){
-            console.log(prevProps.user, '+++', this.props.user);
             
             if(prevProps.user !== this.props.user){
                 // console.log(prevProps.user.auth);
                 // console.log(this.props.user.auth);
                 
-                const path = this.props.history.location.pathname
+                // const path = this.props.history.location.pathname
 
-                let user =this.props.user;
+                let user = this.props.user;
 
                 // console.log('is auth',user)
                 if(user.auth !== undefined){
@@ -50,35 +48,6 @@ export default function AuthGuard(ComposeComponent, priverRoute, adminRoute = nu
                         
                     }
                 }
-                
-
-                // if(this.props.auth){
-                //     console.log('yes', priverRoute);
-                //     if(!priverRoute){
-                //         this.props.history.push('/dashboard');
-                //     }
-                // }else{
-                //     if(priverRoute){
-                //         console.log('no', priverRoute);
-                //         this.props.history.push('/');
-                //     }
-                // }
-                // alert('1');
-                // if(!this.props.auth){
-                    
-                //     if(priverRoute){
-                //         console.log('no', priverRoute);
-                //         this.props.history.push('/');
-                //     }
-                    
-                // }else{
-                //     console.log('yes', priverRoute);
-                //     // const path = this.props.history.location.pathname;
-                //     // console.log('path', path)
-                //     if(!priverRoute){
-                //         this.props.history.push('/dashboard');
-                //     }
-                // }
 
                 this.setState({
                     loading:false
