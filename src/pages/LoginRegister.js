@@ -11,68 +11,68 @@ class LoginRegisterPage extends Component{
     constructor(props){
         super(props);
 
-        this.state = {
-            numbers: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19]
-        }
+        // this.state = {
+        //     numbers: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19]
+        // }
 
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     componentDidMount(){
 
-        const name = ["Saikat", "Biswas"];
+        // const name = ["Saikat", "Biswas"];
 
-        // [...name].filter(item=>{
-        //     if(item.includes())
-        //     return 
+        // // [...name].filter(item=>{
+        // //     if(item.includes())
+        // //     return 
+        // // });
+
+        // console.log('name', [...name], 'name2', name);
+        // const numbers = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19];
+
+        // const numberFilter = numbers.filter(number => {
+        //     // if(number > 5){
+        //         return number > 5
+        //     // }
+        // });
+        // console.log('numberFilter',numberFilter);
+
+        // const numberForEach = numbers.forEach(number=>{
+        //     return number
         // });
 
-        console.log('name', [...name], 'name2', name);
-        const numbers = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19];
+        // console.log('numberForEach', numberForEach);
 
-        const numberFilter = numbers.filter(number => {
-            // if(number > 5){
-                return number > 5
-            // }
-        });
-        console.log('numberFilter',numberFilter);
+        // const numberMap = numbers.map(number=>{
+        //     return number
+        // });
 
-        const numberForEach = numbers.forEach(number=>{
-            return number
-        });
+        // console.log('numberMap', numberMap);
 
-        console.log('numberForEach', numberForEach);
+        // const numberSome = name.some((name)=>{
+        //     if(name === 'Saikat'){
+        //         return name
+        //     }
+        //     // return number
+        // });
 
-        const numberMap = numbers.map(number=>{
-            return number
-        });
+        // console.log('numberSome', numberSome);
 
-        console.log('numberMap', numberMap);
+        // const numberEvery = name.every((name)=>{
+        //     if(name === 'Saikat'){
+        //         return name
+        //     }
+        //     // return number
+        // });
 
-        const numberSome = name.some((name)=>{
-            if(name === 'Saikat'){
-                return name
-            }
-            // return number
-        });
+        // console.log('numberEvery', numberEvery);
 
-        console.log('numberSome', numberSome);
+        // const numberReduce = numbers.reduce((previous, number)=>{
+        //     console.log(previous, number)
+        //     return previous + number
+        // },10);
 
-        const numberEvery = name.every((name)=>{
-            if(name === 'Saikat'){
-                return name
-            }
-            // return number
-        });
-
-        console.log('numberEvery', numberEvery);
-
-        const numberReduce = numbers.reduce((previous, number)=>{
-            console.log(previous, number)
-            return previous + number
-        },10);
-
-        console.log('numberreduce', numberReduce);
+        // console.log('numberreduce', numberReduce);
         
         
     }

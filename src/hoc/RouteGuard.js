@@ -10,20 +10,29 @@ export default function AuthGuard(ComposeComponent, priverRoute, adminRoute = nu
             super(props);
 
             this.state = {
-                loading: true
+                loading: false
             }
         }
 
     
         componentDidMount(){
             // const authData = this.props.dispatch(userIsAuth());
-            this.props.dispatch(userIsAuth())
+            this.props.dispatch(userIsAuth());
+
+            // console.log(this.props);
+        }
+        componentWillReceiveProps(){
+            // console.log(this.props);
         }
 
     
         componentDidUpdate(prevProps){
+            console.log(prevProps)
             
             if(prevProps.user !== this.props.user){
+                this.setState({
+                    loading:true
+                });
                 // console.log(prevProps.user.auth);
                 // console.log(this.props.user.auth);
                 

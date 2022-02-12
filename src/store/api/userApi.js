@@ -1,22 +1,20 @@
-import axios from "axios";
-import { getAuthHeader } from "utils/cookie";
+import axiosInstance from "store/axiosInstance";
+import { getCookie } from "utils/cookie";
 
 export const userLoginApi = ({userid, password})=>{
-    const logindata = axios.post(`/api/auth/signin`,{
+    const logindata = axiosInstance.post(`/auth/signin`,{
         userid,
         password
     });
     return logindata;
 }
 export const userIsAuth = ()=>{
-    if(getAuthHeader()){
+    if(getCookie()){
         // const user = axios.get(`/api/auth/isAuth`, getAuthHeader());
-        const user = axios.get(`/api/auth/isAuth`);
+        const user = axiosInstance.get(`/auth/isAuth`);
         return user;
     }else{
-        return {
-            auth:false
-        }
+        return null
     }
     
 }

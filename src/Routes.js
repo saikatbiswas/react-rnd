@@ -12,19 +12,27 @@ const ComponenetError = ()=>{
   )
 }
 
-class RouteComponent extends Component{
+class Routes extends Component{
 
   render(){
     return(
-      <BrowserRouter>
+      <BrowserRouter data-test="routes-component">
         <Switch>
-          <Route path="/product" component={AuthGuard(ProductsdPage, true)} />
+          {/* <Route path="/product" component={AuthGuard(ProductsdPage, true)} />
           <Route path="/dashboard" component={AuthGuard(DashboardPage, true)} />
           <Route path="/" exact component={AuthGuard(LoginRegisterPage, false)} />
         
           <Route
             path="*"
             component={AuthGuard(ComponenetError, null)}
+          /> */}
+          <Route path="/product" component={ProductsdPage} />
+          <Route path="/dashboard" component={DashboardPage} />
+          <Route path="/" exact component={LoginRegisterPage} />
+        
+          <Route
+            path="*"
+            component={ComponenetError}
           />
         </Switch>
       </BrowserRouter>
@@ -32,4 +40,4 @@ class RouteComponent extends Component{
   }
 
 }
-export default RouteComponent;
+export default Routes;

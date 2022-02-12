@@ -8,10 +8,10 @@ import * as api from '../api/userApi';
 function* userLogin(action){
     try{
         const userData = yield call(api.userLoginApi, action.payload);
-        yield put(actions.userAuthintication(userData.data))
+        yield put(actions.userAuthintication(userData))
     }catch(error){
         // console.log(error);
-        yield put(errorActions.globalError(error.response.data.message));
+        yield put(errorActions.globalError(error));
     }
 }
 
@@ -22,9 +22,9 @@ function* watchUserLogin(){
 function* userIsAuth(){
     try{
         const userData = yield call(api.userIsAuth);
-        yield put(actions.userAuthintication(userData.data));
+        yield put(actions.userAuthintication(userData));
     }catch(error){
-        yield put(errorActions.globalError(error.response.data.message));
+        yield put(errorActions.globalError(error));
     }
     
 }

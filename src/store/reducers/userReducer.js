@@ -20,8 +20,8 @@ export default function userReducer(state=DEFAULT_USER_STATE, action) {
         case actionType.USER_AUTHINTICATE:
             return{
                 ...state,
-                userData:{...action.payload.data},
-                auth: action.payload.data?true:false
+                userData:{...action.payload},
+                auth: action.payload?true:false
             }
     
         default:

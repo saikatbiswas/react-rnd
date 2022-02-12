@@ -1,17 +1,17 @@
 import { Cookies } from "react-cookie";
 const cookies = new Cookies();
 
-export const GetCookie = ()=>{
+export const getCookie = ()=>{
     return cookies.get('x-access-token');
 }
 
-export const RemoveCookie = () =>{
+export const removeCookie = () =>{
     return cookies.remove('x-access-token');
 }
 
 export const getAuthHeader = ()=>{
-    if(GetCookie()){
-        return { headers: {'Authorization': `Bearer ${GetCookie()}` }}
+    if(getCookie()){
+        return { headers: {'Authorization': `Bearer ${getCookie()}` }}
     }
     
 }
