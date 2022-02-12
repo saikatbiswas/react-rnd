@@ -1,13 +1,26 @@
-import React, {Component} from 'react';
+import React, { useEffect, useState } from 'react';
 
 
-class ProductsdPage extends Component{
+const ProductsdPage = ()=>{
+    const [productState, setProductState] = useState('null');
 
-    render(){
-        return(
-            <div>Products Page</div>
-        )
-    }
+    const params = new Proxy(new URLSearchParams(window.location.search), {
+        get: (searchParams, prop) => searchParams.get(prop),
+      });
+      let value = params.name;
+    // console.log(value)
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const myParam = urlParams.get('lastname');
+    console.log(myParam)
+    console.log(window.location.search);
+
+    useEffect(()=>{
+        setProductState('Nice');
+    });
+    return(
+        <div>{productState} Product</div>
+    )
 }
 
 export default ProductsdPage;

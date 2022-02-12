@@ -1,18 +1,12 @@
 import { actionType } from "store/type";
 let DEFAULT_USER_STATE = {
-    data:{
-        _id:null,
-        fullname:null,
-        email:null,
-        phone:null,
-        historyuser:[],
-        historyseller:[],
-        issocalregister:null,
-        verified:null
-    },
-    auth:null,
-    cart:[],
-    sell:[]
+    students:[],
+    student_id:null,
+    menu_practice_count:[],
+    parent:{},
+    expires_in:null,
+    is_due:null,
+    auth:false
 }
 
 export default function userReducer(state=DEFAULT_USER_STATE, action) {
@@ -25,6 +19,6 @@ export default function userReducer(state=DEFAULT_USER_STATE, action) {
             }
     
         default:
-            return false;
+            return state;
     }
 }

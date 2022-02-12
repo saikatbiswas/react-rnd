@@ -1,4 +1,5 @@
-import { takeLatest, fork, call, put, takeEvery } from 'redux-saga/effects'
+import { takeLatest, fork, call, put, takeEvery } from 'redux-saga/effects';
+// import { getAuthHeader } from 'utils/cookie';
 import { actionType } from "store/type";
 import * as actions from '../actions/userAction';
 import * as errorActions from '../actions/errorHandlerActions';
@@ -19,23 +20,23 @@ function* watchUserLogin(){
     yield takeLatest(actionType.USER_LOGIN, userLogin);
 }
 
-function* userIsAuth(){
-    try{
-        const userData = yield call(api.userIsAuth);
-        yield put(actions.userAuthintication(userData.data));
-    }catch(error){
-        yield put(errorActions.globalError(error.response.data.message));
-    }
+// function* userIsAuth(){
+//     try{
+//         const userData = yield call(api.userIsAuth);
+//         yield put(actions.userAuthintication(userData.data));
+//     }catch(error){
+//         yield put(errorActions.globalError(error.response.data.message));
+//     }
     
-}
+// }
 
-function* watchUserIsAuth(){
-    yield takeEvery(actionType.USER_IS_AUTH, userIsAuth);
-}
+// function* watchUserIsAuth(){
+//     yield takeEvery(actionType.USER_IS_AUTH, userIsAuth);
+// }
 
 const userSagas = [
     fork(watchUserLogin),
-    fork(watchUserIsAuth)
+    // fork(watchUserIsAuth)
 ];
 
 export default userSagas;

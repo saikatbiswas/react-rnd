@@ -1,11 +1,14 @@
 import axios from "axios";
-import { getAuthHeader } from "utils/cookie";
+import { getAuthHeader, setCookie } from "utils/cookie";
 
 export const userLoginApi = ({userid, password})=>{
-    const logindata = axios.post(`/api/auth/signin`,{
-        userid,
+    const logindata = axios.post(`users/login`,{
+        email:userid,
         password
     });
+    if(logindata.access_token){
+        setCookie(logindata.access_token);
+    }
     return logindata;
 }
 export const userIsAuth = ()=>{
