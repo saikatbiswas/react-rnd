@@ -1,4 +1,11 @@
-import React, {Component} from 'react';
+import React, {Component, createRef} from 'react';
+import { connect } from 'react-redux';
+import { getDashboardData } from 'store/actions/dashboardActions';
+
+import ContextComponent from 'components/dashboard/ContextComponent';
+import CustomButton from 'components/dashboard/CustomButton';
+
+import Subject from '../components/dashboard/Subject';
 
 const myArray = [
     {"fact":"A cat can jump 5 times.","length":106},
@@ -7,15 +14,21 @@ const myArray = [
 ];
 
 class DashboardPage extends Component{
+    constructor(props){
+        super(props);
+
+        this.myRef = createRef();
+        // document.cookie = "username=John Doe; expires=Thu, 18 Dec 2013 12:00:00 UTC";
+
+    }
 
     componentDidMount(){
-        
-        
-        // myArray.forEach(item=> newArray.push(
-        //     <li>{item.fact}</li>
-        // ));
-        // console.log(newArray);
-        console.log(typeof null);
+        console.log(this)
+    }
+    componentDidUpdate(prevProps){
+        if(prevProps.user !== this.props.user){
+            this.props.dispatch(getDashboardData(this.props.user.student_id));
+        }
     }
 
     render(){
@@ -34,20 +47,26 @@ class DashboardPage extends Component{
         
         return(
             <div>
+                <h1>Dashboard Page</h1>
+                
+                {this.props.dashboardData && this.props.dashboardData.subject_list?
+                    <Subject items={this.props.dashboardData.subject_list} />
+                :null}
+
                 <div>
-                    <h2>ForEach</h2>
-                    <ul>
-                        {/* {
-                            myArray.forEach(item=> newArray.push(
-                                <li key={item.length}>{item.fact}</li>
-                            ))
-                        } */}
-                        {items}
-                    </ul>
+                     <ContextComponent />
                 </div>
+                <h2>Forward ref</h2>
+                <CustomButton ref={this.myRef}>Forword ref button</CustomButton>
             </div>
         )
     }
 }
 
-export default DashboardPage;
+const mapPropsToState = (state)=>{
+    return{
+        dashboardData: state.dashboard
+    }
+}
+
+export default connect(mapPropsToState)(DashboardPage);

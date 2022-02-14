@@ -1,30 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import RouteComponent from './RouteComponent';
+import Routes from './Routes';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
 import readuxStore from './store';
-// import axios from 'axios';
-// import { getAuthHeader } from './utils/cookie';
 
-// axios.interceptors.request.use(
-//   (request)=>{
-    
-//     if(request.url.includes('login')){
-      
-//       request.headers = getAuthHeader();
-//       console.log(request);
-//     }
-//   },
-//   error=>{
-//     return Promise.reject(error);
-//   }
-// );
+import './assets/scss/style.scss';
+// import reduxSetup from './reduxSetup';
+
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={readuxStore()}>
-      <RouteComponent />
+      <Routes />
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')

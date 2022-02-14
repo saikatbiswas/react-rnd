@@ -11,9 +11,9 @@ class LoginRegisterPage extends Component{
     constructor(props){
         super(props);
 
-        this.state = {
-            numbers: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19]
-        }
+        // this.state = {
+        //     numbers: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19]
+        // }
 
         this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -84,7 +84,7 @@ class LoginRegisterPage extends Component{
     }
 
     handleSubmit(data){
-        console.log('submit', data);
+        // console.log('submit', data);
         this.props.dispatch(userLogin(data));
     }
 

@@ -1,6 +1,6 @@
 import React,{Component} from'react';
 import { connect } from 'react-redux';
-// import { userIsAuth } from '../store/actions/userAction';
+import { userIsAuth } from '../store/actions/userAction';
 
 export default function AuthGuard(ComposeComponent, priverRoute, adminRoute = null){
 
@@ -10,70 +10,71 @@ export default function AuthGuard(ComposeComponent, priverRoute, adminRoute = nu
             super(props);
 
             this.state = {
-                loading: true
+                loading: false
             }
         }
 
     
         componentDidMount(){
-            console.log('auth',this)
-            // const authData = this.props.dispatch(userIsAuth());
-            // this.props.dispatch(userIsAuth())
-            let user = this.props.user;
+            // console.log('auth',this)
+            // // const authData = this.props.dispatch(userIsAuth());
+            this.props.dispatch(userIsAuth());
+            // let user = this.props.user;
 
-            if(user.auth !== undefined){
-                if(user.auth){
-                    if(priverRoute === false){
-                        // console.log(path);
-                        // alert(user.auth);
-                        this.props.history.push('/dashboard');
+            // if(user.auth !== undefined){
+            //     if(user.auth){
+            //         if(priverRoute === false){
+            //             // console.log(path);
+            //             // alert(user.auth);
+            //             this.props.history.push('/dashboard');
                         
-                    }
-                }else{
-                    if(priverRoute){
-                        // alert(user.auth);
-                        this.props.history.push('/');
-                    }
+            //         }
+            //     }else{
+            //         if(priverRoute){
+            //             // alert(user.auth);
+            //             this.props.history.push('/');
+            //         }
                     
-                }
-            }
+            //     }
+            // }
 
-            this.setState({
-                loading:false
-            });
+            // this.setState({
+            //     loading:false
+            // });
         }
 
     
-        // componentDidUpdate(prevProps){
+        componentDidUpdate(prevProps){
+            // console.log('auth',this)
             
-        //     if(prevProps.user !== this.props.user){
+            if(prevProps.user !== this.props.user){
 
-        //         let user = this.props.user;
+                let user = this.props.user;
 
-        //         // console.log('is auth',user)
-        //         if(user.auth !== undefined){
-        //             if(user.auth){
-        //                 if(priverRoute === false){
-        //                     // console.log(path);
-        //                     // alert(user.auth);
-        //                     this.props.history.push('/dashboard');
+                // console.log('is auth',user)
+                if(user.auth !== undefined){
+                    if(user.auth){
+                        if(priverRoute === false){
+                            // console.log(path);
+                            // alert(user.auth);
+                            this.props.history.push('/dashboard');
                             
-        //                 }
-        //             }else{
-        //                 if(priverRoute){
-        //                     // alert(user.auth);
-        //                     this.props.history.push('/');
-        //                 }
+                        }
+                    }else{
+                        if(priverRoute){
+                            // alert(user.auth);
+                            this.props.history.push('/');
+                        }
                         
-        //             }
-        //         }
+                    }
+                }
 
-        //         this.setState({
-        //             loading:false
-        //         });
-        //     }
+                this.setState({
+                    loading:false
+                });
+            }
             
-        // }
+        }
     
         render(){
             // if()

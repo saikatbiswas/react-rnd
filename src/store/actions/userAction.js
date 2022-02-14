@@ -18,7 +18,11 @@ export const userIsAuth = ()=>({
 
 export const userAuthintication = (data)=>({
     type: actionType.USER_AUTHINTICATE,
-    payload: {data}
+    payload: data
+});
+
+export const userSignout = ()=>({
+    type: actionType.USER_SIGNOUT
 });
 
 

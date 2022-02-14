@@ -1,0 +1,40 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    &:after,
+    ::before{
+        box-sizing: border-box;
+    }
+}
+
+body{
+    font-family: $font-family;
+    font-size: $font-size;
+    background-color: $light-color;
+}
+
+.ml-auto{
+    margin-left: auto;
+}
+.mr-auto{
+    margin-right: auto;
+}
+.my-auto{
+    margin-top: auto;
+    margin-bottom: auto;
+}
+.mx-auto{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.main-wrapper{
+    margin-left: $sidebar-width;
+    transition: margin-left .15s,margin-right .15s,box-shadow 75ms,transform .15s,width .15s,z-index 0s ease .15s;
+}
+.main-content-wrapper{
+    min-height: calc(100vh - 100px);
+    padding: 15px;
+}

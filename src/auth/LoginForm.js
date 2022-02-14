@@ -9,7 +9,7 @@ class LoginForm extends Component{
 
   render(){
       const validationSchema = Yup.object({
-          userid: Yup.string()
+          email: Yup.string()
           .required("lease enter a Email ID/Mobile number")
           .test('user-id', 'Please enter valid Email ID/Mobile number', 
           (value)=> {
@@ -30,7 +30,7 @@ class LoginForm extends Component{
 
       return(
           <Formik
-              initialValues={{ userid: '', password: '' }}
+              initialValues={{ email: '', password: '' }}
               validationSchema={validationSchema}
               // onSubmit={(values, { setSubmitting, resetForm }) => {
               onSubmit={(values, { resetForm }) => {
@@ -52,10 +52,10 @@ class LoginForm extends Component{
                     <TextField
                       fullWidth
                       label="Enter Email/Mobile number"
-                      name="userid"
+                      name="email"
                       margin="normal"
-                      {...getFieldProps('userid')}
-                      {...errorHelper(props, 'userid')}
+                      {...getFieldProps('email')}
+                      {...errorHelper(props, 'email')}
                     />
 
                     <TextField

@@ -1,0 +1,45 @@
+.header-wrapper{
+    position: relative;
+    box-shadow: $box-shadow;
+    display: flex;
+    padding: 5px;
+    background-color: $white-color;
+
+    &.header-sticky {
+        position: sticky;
+        top: 0;
+        z-index: 1029;
+    }
+}
+
+.toggle-menu-btn{
+    margin: 5px;
+    padding: 5px;
+    border: 1px solid $border-color;
+    border-radius: 50%;
+    background-color: $light-color;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease-in;
+
+    &:hover{
+        background-color: $primary-color;
+        color: $light-color;
+        border-color: darken($primary-color, 5%);
+    }
+}
+
+
+
+
+.footer-wrapper{
+    position: relative;
+    border-top: 1px solid $border-color;
+    padding: 15px 10px;
+    text-align: center;
+    background-color: $white-color;
+}
