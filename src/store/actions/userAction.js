@@ -21,8 +21,9 @@ export const userAuthintication = (data)=>({
     payload: data
 });
 
-export const userSignout = ()=>({
-    type: actionType.USER_SIGNOUT
+export const userSignout = (history)=>({
+    type: actionType.USER_SIGNOUT,
+    payload: history
 });
 
 

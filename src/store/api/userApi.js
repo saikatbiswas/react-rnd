@@ -17,8 +17,17 @@ export const userIsAuth = ()=>{
     }else{
         return null
     }
-    
 }
+export const userLogoutApi = ()=>{
+    if(getCookie()){
+        // const user = axios.get(`/api/auth/isAuth`, getAuthHeader());
+        const user = axiosInstance.post(`/users/logout`);
+        return user;
+    }else{
+        return null
+    }
+}
+
 
 // export const userLogin = ({userid, password})=>{
 //     const userData = axios.post(`${USER_SERVER}signin`,{

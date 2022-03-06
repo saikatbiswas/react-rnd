@@ -1,5 +1,5 @@
-import { takeLatest, fork, call, put, takeEvery } from 'redux-saga/effects';
-import { getAuthHeader, setCookie, removeCookie } from 'utils/cookie';
+import { takeLatest, fork, call, put, takeEvery, take } from 'redux-saga/effects';
+import { getAuthHeader, setCookie, removeCookie, getCookie } from 'utils/cookie';
 import { actionType } from "store/type";
 import * as actions from '../actions/userAction';
 import * as errorActions from '../actions/errorHandlerActions';
@@ -43,9 +43,27 @@ function* watchUserIsAuth(){
     yield takeEvery(actionType.USER_IS_AUTH, userIsAuth);
 }
 
-function* userSignOut(){
+function* userSignOut(action){
+    // const { history } = action.payload;
+    // console.log(action.payload);
+    const user = yield call(api.userLogoutApi);
     yield localStorage.removeItem('user');
     yield removeCookie();
+    
+    // console.log(user)
+    
+    // yield action.payload.push('/');
+    if(!localStorage.getItem('user')){
+        console.log(localStorage.getItem('user'));
+        // yield removeCookie();
+        // yield localStorage.removeItem('user');
+        // yield action.payload.push('/');
+    }
+    
+    
+    // 
+    // alert('1');
+    
 }
 
 function* watchUserSignOut(){

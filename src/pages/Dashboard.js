@@ -22,9 +22,9 @@ class DashboardPage extends Component{
 
     }
 
-    componentDidMount(){
-        console.log(this)
-    }
+    // componentDidMount(){
+    //     console.log(this)
+    // }
     componentDidUpdate(prevProps){
         if(prevProps.user !== this.props.user){
             this.props.dispatch(getDashboardData(this.props.user.student_id));

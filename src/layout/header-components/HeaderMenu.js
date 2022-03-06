@@ -2,7 +2,10 @@ import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 // import { Avatar, Button, ClickAwayListener, ListItemIcon, Grow, IconButton, Menu, MenuItem, Paper,Popper, MenuList, Stack } from '@mui/material'
-import { Button, ClickAwayListener, Grow,  MenuItem, Paper,Popper, MenuList } from '@mui/material'
+import { Button, ClickAwayListener, Grow,  MenuItem, Paper,Popper, MenuList,
+    Avatar, IconButton } from '@mui/material'
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+import { Link } from "react-router-dom";
 
 import { userSignout } from '../../store/actions/userAction';
 
@@ -24,7 +27,6 @@ class HeaderMenu extends Component{
 
     handleClick(event){
         const isOpen = Boolean(event.currentTarget);
-        console.log(isOpen);
         this.setState({
             anchorEl: event.currentTarget,
             open: isOpen
@@ -48,27 +50,60 @@ class HeaderMenu extends Component{
             anchorEl: null,
             open: false
         });
-        this.props.dispatch(userSignout());
-        this.props.history.push('/')
+        // const { history } = this.props;
+        this.props.dispatch(userSignout(this.props.history));
+        // this.props.history.push('/');
+    }
+    
+    componentDidUpdate(prevProps){
+        // console.log(prevProps.userData, this.props.userData);
+        if(prevProps.userData.auth !== this.props.userData.auth){
+            
+        }
     }
 
     render(){
         return(
             <div>
-                <Button
+                {/* <Button
                     id="basic-button"
                     aria-controls={this.state.open ? 'basic-menu' : undefined}
                     aria-haspopup="true"
                     aria-expanded={this.state.open ? 'true' : undefined}
                     onClick={this.handleClick}
                 >
+                    <Avatar sx={{ width: 32, height: 32 }}>M</Avatar>
                     Dashboard
-                </Button>
+                </Button> */}
+                <MenuItem
+                    className={this.state.open?'dropmenu-open':''}
+                    aria-controls={this.state.open ? 'basic-menu' : undefined}
+                    aria-haspopup="true"
+                    aria-expanded={this.state.open ? 'true' : undefined}
+                    onClick={this.handleClick}
+                >
+                    <Avatar 
+                        src={this.props.userData.parent.s_profile_pic?this.props.userData.parent.s_profile_pic:'https://mui.com/static/images/avatar/1.jpg'} 
+                        style={{marginRight: '8px'}} 
+                    /> {this.props.userData.parent.s_first_name} {this.props.userData.parent.s_last_name}
+                    <ArrowDropDownIcon className="drop-arrow-icon" />
+                </MenuItem>
+                {/* <IconButton
+                    size="small"
+                    sx={{ ml: 2 }}
+                    aria-controls={this.state.open ? 'basic-menu' : undefined}
+                    aria-haspopup="true"
+                    aria-expanded={this.state.open ? 'true' : undefined}
+                    onClick={this.handleClick}
+                >
+                    <Avatar sx={{ width: 32, height: 32 }}>M</Avatar>
+                    Dashboard
+                </IconButton> */}
                 <Popper
                     open={this.state.open}
                     anchorEl={this.state.anchorEl}
                     role={undefined}
-                    placement="bottom-start"
+                    placement="bottom-end"
                     transition
                     disablePortal
                     >
@@ -77,7 +112,7 @@ class HeaderMenu extends Component{
                         {...TransitionProps}
                         style={{
                             transformOrigin:
-                            placement === 'bottom-start' ? 'left top' : 'left bottom',
+                            placement === 'bottom-end' ? 'left top' : 'left bottom',
                         }}
                         >
                         <Paper>
@@ -89,7 +124,13 @@ class HeaderMenu extends Component{
                                 onKeyDown={this.handleListKeyDown}
                                 style={{display: !this.state.open?'none':''}}
                             >
-                                <MenuItem onClick={this.handleClose}>Profile</MenuItem>
+                                <MenuItem 
+                                    component={Link}
+                                    to="/profile"
+                                    onClick={this.handleClose}
+                                >
+                                   Profile
+                                </MenuItem>
                                 <MenuItem onClick={this.handleClose}>My account</MenuItem>
                                 <MenuItem onClick={this.handleLogout}>Logout</MenuItem>
                             </MenuList>
@@ -120,7 +161,7 @@ class HeaderMenu extends Component{
 
 const mapStateToProps = (state)=>{
     return{
-        userData: state.user.userData
+        userData: state.user
     }
 }
 

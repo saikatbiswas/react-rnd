@@ -9,7 +9,7 @@ class Subject extends Component{
     }
 
     renderSubject(){
-        console.log(this.props.items)
+        // console.log(this.props.items)
         return this.props.items.map(item=>(
             <Card key={item.i_subject_id}>
                 <CardContent>
@@ -22,7 +22,6 @@ class Subject extends Component{
     }
 
     render(){
-        console.log(this)
         return(
             <div>
                 {this.renderSubject()}

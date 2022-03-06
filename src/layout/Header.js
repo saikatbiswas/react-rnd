@@ -8,11 +8,11 @@ class Header extends Component{
     constructor(props){
         super(props);
 
-        this.handleLogout = this.handleLogout.bind(this);
+        // this.handleLogout = this.handleLogout.bind(this);
     }
 
     handleLogout(){
-        localStorage.removeItem('user');
+        // localStorage.removeItem('user');
         this.setState({
             anchorEl: null,
             open: false
@@ -29,7 +29,7 @@ class Header extends Component{
                 <h1>Logo</h1>
 
                 <div className="header-right-nav ml-auto">
-                    <HeaderMenu handleLogout={this.handleLogout} />
+                    <HeaderMenu />
                 </div>
             </header>
         )

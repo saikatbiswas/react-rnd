@@ -7,6 +7,9 @@ import PrivetRoutes from 'hoc/PrivetRoutes';
 import LoginRegisterPage from 'pages/LoginRegister';
 import DashboardPage from 'pages/Dashboard';
 import ProductsdPage from 'pages/Products';
+import Session from 'pages/Session';
+
+import Profile from 'pages/Profile';
 
 
 const ComponenetError = ()=>{
@@ -24,6 +27,8 @@ class Routes extends Component{
 
             <Route path="/" exact component={AuthGuard(LoginRegisterPage, false)} />
 
+            <PrivetRoutes path="/session" component={AuthGuard(Session, true)} />
+            <PrivetRoutes path="/profile" component={AuthGuard(Profile, true)} />
             <PrivetRoutes path="/product" component={AuthGuard(ProductsdPage, true)} />
             <PrivetRoutes path="/dashboard" component={AuthGuard(DashboardPage, true)} />
             

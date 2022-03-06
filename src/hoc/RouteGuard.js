@@ -1,6 +1,7 @@
 import React,{Component} from'react';
 import { connect } from 'react-redux';
 import { userIsAuth } from '../store/actions/userAction';
+import { getCookie } from 'utils/cookie';
 
 export default function AuthGuard(ComposeComponent, priverRoute, adminRoute = null){
 
@@ -19,6 +20,9 @@ export default function AuthGuard(ComposeComponent, priverRoute, adminRoute = nu
             // console.log('auth',this)
             // // const authData = this.props.dispatch(userIsAuth());
             this.props.dispatch(userIsAuth());
+            if(getCookie()){
+                console.log('no coookie')
+            }
             // let user = this.props.user;
 
             // if(user.auth !== undefined){
@@ -45,13 +49,13 @@ export default function AuthGuard(ComposeComponent, priverRoute, adminRoute = nu
 
     
         componentDidUpdate(prevProps){
-            // console.log('auth',this)
+            // console.log('auth1',this);
             
             if(prevProps.user !== this.props.user){
 
                 let user = this.props.user;
 
-                // console.log('is auth',user)
+                console.log('is auth 2',localStorage.getItem('user'));
                 if(user.auth !== undefined){
                     if(user.auth){
                         if(priverRoute === false){

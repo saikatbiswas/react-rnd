@@ -10,7 +10,7 @@ export const nav = [
     {to:"dashboard", title: "Dashboard", pic: <DashboardIcon />},
     {title: "Service Ticket", pic: <ConfirmationNumberIcon />,
         submenu:[
-            {to: "product", title: "Support Tickets"},
+            {to: "session", title: "Session"},
             {to: "project-managements", title: "Software Tickets"},
             {to: "connect-wise-widget-details2", title: "Support Tickets2"},
             {to: "project-managements2", title: "Software Tickets2"},
