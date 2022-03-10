@@ -9,5 +9,11 @@ export const actionType = {
 
     GET_DASHBOARD_DATA: 'get_dashboard_data',
     DASHBOARD_DATA_SUCCESS: 'dashboard_data_success',
+
+    // Learn with mentor
+    LEARN_WITH_MENTOR_REQUEST: 'learn_with_mentor_request',
+    LEARN_WITH_MENTOR_SUCCESS: 'learn_with_mentor_success',
+
+    
     
 }

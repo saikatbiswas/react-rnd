@@ -9,6 +9,8 @@ import DashboardPage from 'pages/Dashboard';
 import ProductsdPage from 'pages/Products';
 import Session from 'pages/Session';
 
+import LearnWithMentor from 'pages/LearnWithMentor';
+
 import Profile from 'pages/Profile';
 
 
@@ -28,6 +30,7 @@ class Routes extends Component{
             <Route path="/" exact component={AuthGuard(LoginRegisterPage, false)} />
 
             <PrivetRoutes path="/session" component={AuthGuard(Session, true)} />
+            <PrivetRoutes path="/learn-with-mentor" component={AuthGuard(LearnWithMentor, true)} />
             <PrivetRoutes path="/profile" component={AuthGuard(Profile, true)} />
             <PrivetRoutes path="/product" component={AuthGuard(ProductsdPage, true)} />
             <PrivetRoutes path="/dashboard" component={AuthGuard(DashboardPage, true)} />

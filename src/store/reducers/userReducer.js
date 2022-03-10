@@ -11,11 +11,12 @@ let DEFAULT_USER_STATE = {
 
 export default function userReducer(state=DEFAULT_USER_STATE, action) {
     // console.log(action.payload);
+    // console.log(action.type);
     switch (action.type) {
         case actionType.USER_AUTHINTICATE:
             return{
                 ...state,...action.payload,
-                auth: action.payload.access_token?true:false
+                auth: action.payload && action.payload.access_token?true:false
             }
         case actionType.USER_SIGNOUT:
             return{
