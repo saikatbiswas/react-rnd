@@ -30,6 +30,18 @@ body{
     margin-right: auto;
 }
 
+p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+.loader-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 50px 0;
+}
+
 .main-wrapper{
     margin-left: $sidebar-width;
     transition: margin-left .15s,margin-right .15s,box-shadow 75ms,transform .15s,width .15s,z-index 0s ease .15s;

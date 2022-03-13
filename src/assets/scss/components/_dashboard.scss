@@ -1,0 +1,192 @@
+// Import css files
+@import "slick-carousel/slick/slick.css";
+@import "slick-carousel/slick/slick-theme.css";
+
+// Notice board
+.card-body-left-border {
+    border-radius: 10px;
+    padding: 10px;
+    margin: 0 0 0 7px;
+    font-size: 12px;
+    position: relative;
+    z-index: 500;
+
+    &:before{
+        content: "";
+        background-color: $primary-color;
+        border-radius: 10px;
+        position: absolute;
+        left: -7px;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+    }
+    &:after{
+        content: "";
+        background-color: #F9F9F9;
+        border-radius: 10px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+    }
+}
+.notice-board-heading {
+    font-size: 1.1rem;
+    margin: 0 0 12px;
+    font-weight: 600;
+}
+.notice-link-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 10px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.slider-inner-box{
+    position: relative;
+}
+
+.col-custom-5 {
+    position: relative;
+    width: 100%;
+    flex: 0 0 20% !important;
+    max-width: 20% !important;
+}
+
+// Champ
+.ranking-container {
+    border: 1px solid #e3e6f0;
+    border-radius: 10px;
+    box-shadow: 0 0.15rem 1.75rem 0 rgb(58 59 69 / 15%);
+    margin: 0 0 20px;
+    background-color: #fff;
+    position: relative;
+}
+.rank-header-wrapper {
+    background: linear-gradient(to right, rgba(87, 96, 10, 0.2) 0%, rgba(201, 217, 40, 0.1) 100%);
+    border-radius: 10px;
+    position: relative;
+    z-index: 200;
+}
+.ranking-heading {
+    font-size: 22px;
+    font-weight: 700;
+    margin: 0 0 15px;
+    text-align: center;
+    padding: 15px 0 0 0;
+}
+.rank-header {
+    display: flex;
+    justify-content: space-around;
+    padding: 0 10px;
+    align-items: flex-end;
+
+    >div{
+        &:nth-child(0){
+            order: 2;
+        }
+        &:nth-child(1){
+            order: 1;
+        }
+        &:nth-child(2){
+            order: 3;
+        }
+    }
+}
+.rank-image-box {
+    width: 90px;
+    height: 90px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    border-radius: 50%;
+    margin: 0 auto 5px;
+    &.two, &.three {
+        width: 60px;
+        height: 60px;
+    }
+    span {
+        width: 25px;
+        height: 25px;
+        background-color: $primary-color;
+        color: #fff;
+        border-radius: 50%;
+        position: absolute;
+        right: 0;
+        top: 0;
+        box-shadow: 0 2px 3px rgb(0 0 0 / 30%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    &.two span {
+        background-color: #7d8152;
+    }
+    &.three span {
+        background-color: #898b70;
+    }
+}
+.champion-name {
+    font-weight: 700;
+    font-size: 12px;
+    display: block;
+    text-align: center;
+    margin: 0;
+}
+.champ-score {
+    font-size: 22px;
+    font-weight: 800;
+    display: block;
+    text-align: center;
+    margin: 0 0 15px;
+}
+.classchamp-container {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 15px 20px;
+    h4 {
+        font-size: 18px;
+        font-weight: 700;
+        margin: 0 0 10px;
+        text-align: center;
+    }
+}
+
+
+.pdg-right-card-img-wrap {
+    width: 100px;
+    height: 100px;
+    min-width: 100px;
+    position: relative;
+    border-radius: 50%;
+    margin: 0 15px 0 0;
+}
+.pdg-right-card-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    position: absolute;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.pdg-right-card-content {
+    font-size: 12px;
+    color: #6D6D6D;
+    p{
+        margin: 0 0 8px;
+    }
+}
+.pdg-right-card-heading {
+    font-size: 18px;
+    color: #222222;
+    margin: 0 0 2px;
+    font-weight: 400;
+}

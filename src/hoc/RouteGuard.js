@@ -20,9 +20,6 @@ export default function AuthGuard(ComposeComponent, priverRoute, adminRoute = nu
             // console.log('auth',this)
             // // const authData = this.props.dispatch(userIsAuth());
             this.props.dispatch(userIsAuth());
-            if(getCookie()){
-                console.log('no coookie')
-            }
             // let user = this.props.user;
 
             // if(user.auth !== undefined){
@@ -50,23 +47,20 @@ export default function AuthGuard(ComposeComponent, priverRoute, adminRoute = nu
     
         componentDidUpdate(prevProps){
             // console.log('auth1',this);
-            
             if(prevProps.user !== this.props.user){
-
                 let user = this.props.user;
-
-                console.log('is auth 2',localStorage.getItem('user'));
+                // console.log('is auth 2',localStorage.getItem('user'));
                 if(user.auth !== undefined){
                     if(user.auth){
                         if(priverRoute === false){
-                            // console.log(path);
-                            // alert(user.auth);
+                            // alert('1');
                             this.props.history.push('/dashboard');
                             
                         }
                     }else{
+                        // localStorage.removeItem('user');
                         if(priverRoute){
-                            // alert(user.auth);
+                            // alert('2');
                             this.props.history.push('/');
                         }
                         

@@ -9,15 +9,15 @@ export const userLoginApi = ({email, password})=>{
     return logindata;
 }
 
-export const userIsAuth = ()=>{
-    if(getCookie()){
-        // const user = axios.get(`/api/auth/isAuth`, getAuthHeader());
-        const user = axiosInstance.get(`/auth/isAuth`);
-        return user;
-    }else{
-        return null
-    }
-}
+// export const userIsAuth = ()=>{
+//     if(getCookie()){
+//         // const user = axios.get(`/api/auth/isAuth`, getAuthHeader());
+//         const user = axiosInstance.get(`/auth/isAuth`);
+//         return user;
+//     }else{
+//         return null
+//     }
+// }
 export const userLogoutApi = ()=>{
     if(getCookie()){
         // const user = axios.get(`/api/auth/isAuth`, getAuthHeader());

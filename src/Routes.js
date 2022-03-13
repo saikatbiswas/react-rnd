@@ -34,7 +34,7 @@ class Routes extends Component{
             
             <Route
               path="*"
-              component={AuthGuard(ComponenetError, false)}
+              component={AuthGuard(ComponenetError, null)}
             /> 
 
             

@@ -1,5 +1,5 @@
-import { takeLatest, fork, call, put, takeEvery, take } from 'redux-saga/effects';
-import { getAuthHeader, setCookie, removeCookie, getCookie } from 'utils/cookie';
+import { takeLatest, fork, call, put, takeEvery } from 'redux-saga/effects';
+import { getAuthHeader, setCookie, removeCookie } from 'utils/cookie';
 import { actionType } from "store/type";
 import * as actions from '../actions/userAction';
 import * as errorActions from '../actions/errorHandlerActions';
@@ -26,8 +26,11 @@ function* watchUserLogin(){
 function* userIsAuth(){
     try{
         if(getAuthHeader()){
-            const storeUserData = JSON.parse(localStorage.getItem('user'));
-            yield put(actions.userAuthintication(storeUserData));
+            if(JSON.parse(localStorage.getItem('user'))){
+                const storeUserData = JSON.parse(localStorage.getItem('user'));
+                yield put(actions.userAuthintication(storeUserData));
+            }
+            
         }else{
             yield localStorage.removeItem('user');
             yield put(actions.userAuthintication({auth:false}));
@@ -46,20 +49,11 @@ function* watchUserIsAuth(){
 function* userSignOut(action){
     // const { history } = action.payload;
     // console.log(action.payload);
-    const user = yield call(api.userLogoutApi);
     yield localStorage.removeItem('user');
+    yield call(api.userLogoutApi);
     yield removeCookie();
     
-    // console.log(user)
-    
     // yield action.payload.push('/');
-    if(!localStorage.getItem('user')){
-        console.log(localStorage.getItem('user'));
-        // yield removeCookie();
-        // yield localStorage.removeItem('user');
-        // yield action.payload.push('/');
-    }
-    
     
     // 
     // alert('1');
