@@ -1,5 +1,6 @@
 import React from "react";
 
+
 const LearnWithMentor = ({className, batchName, mentorName, totalClass})=>{
     return(
         <div className='learn-mentor-db-container'>

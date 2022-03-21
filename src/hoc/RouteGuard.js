@@ -1,7 +1,6 @@
 import React,{Component} from'react';
 import { connect } from 'react-redux';
 import { userIsAuth } from '../store/actions/userAction';
-import { getCookie } from 'utils/cookie';
 
 export default function AuthGuard(ComposeComponent, priverRoute, adminRoute = null){
 
@@ -90,12 +89,6 @@ export default function AuthGuard(ComposeComponent, priverRoute, adminRoute = nu
             user: state.user
         }
     }
-    
-    // const mapDispatchToProps = ()=>{
-    //     return {
-    //         userIsAuth
-    //     }
-    // }
     
     return connect(mapStateToProps)(RouteGuard);
 

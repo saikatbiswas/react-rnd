@@ -5,20 +5,30 @@ import { userLogin } from 'store/actions/userAction';
 import { clearGlobalError } from 'store/actions/errorHandlerActions';
 import LoginForm from 'auth/LoginForm';
 
+// import InfiniteScroll from 'components/InfiniteScroll';
+
 
 class LoginRegisterPage extends Component{
 
     constructor(props){
         super(props);
 
-        // this.state = {
-        //     numbers: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19]
-        // }
+        this.state = {
+            numbers: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19]
+        }
+        this.header = {
+            name: 'Saikat'
+        }
 
         this.handleSubmit = this.handleSubmit.bind(this);
+
+        
     }
 
     componentDidMount(){
+        console.log(this)
+
+        
 
         // const name = ["Saikat", "Biswas"];
 
@@ -90,10 +100,14 @@ class LoginRegisterPage extends Component{
 
     render(){
         
+        setTimeout(()=>{
+            this.header.name = 'Biswas'
+        },300);
 
         return(
             <div>
                 <h1>Login</h1>
+                {this.header.name}
                 <div>
                     {/* {
                         this.state.numbers.forEach(number=>(
@@ -101,6 +115,7 @@ class LoginRegisterPage extends Component{
                         ))
                     } */}
                 </div>
+                {/* <InfiniteScroll /> */}
                 <Box sx={{ flexGrow: 1 }}>
                     <Grid container spacing={2} justifyContent="center">
 
